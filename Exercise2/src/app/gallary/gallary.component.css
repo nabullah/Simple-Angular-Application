@@ -1,0 +1,7 @@
+.row{
+    --bs-gutter-x:0;
+    gap: 5px;
+}
+.col-lg-4{
+    width: 33%;
+}

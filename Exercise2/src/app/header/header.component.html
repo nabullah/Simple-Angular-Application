@@ -1,0 +1,68 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <!-- Container wrapper -->
+    <div class="container">
+        <!-- Navbar brand -->
+        <a class="navbar-brand me-2">
+            <fa-icon [icon]="logo"></fa-icon>
+        </a>
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
+      <fa-icon [icon]="bars"></fa-icon>
+    </button>
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <!-- Left links -->
+            <!-- Go Back Buttons -->
+            <ng-container *ngIf="backProductButtons">
+                <li class="back">
+                    <a routerLink="/products">
+                        <fa-icon [icon]="circleleft"></fa-icon>
+                        <span>&nbsp;Back To Products</span></a>
+                </li>
+            </ng-container>
+            <ng-container *ngIf="backGallaryButtons">
+                <li class="back">
+                    <a routerLink="/gallary">
+                        <fa-icon [icon]="circleleft"></fa-icon>
+                        <span>&nbsp;Back To Gallary</span></a>
+                </li>
+            </ng-container>
+            <div class="ul">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-sm-center" *ngIf="navul">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/gallary">Gallary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Left links -->
+            <div class="d-flex align-items-center leftbuttons">
+                <ng-container *ngIf="loginButtons">
+                    <button type="button" class="btn btn-primary px-3 me-2" routerLink="/login">
+          Login
+        </button>
+                    <button type="button" class="btn btn-primary me-3" routerLink="/signup">
+          Sign up
+        </button>
+                </ng-container>
+                <ng-container *ngIf="logoutButtons"> <a class="btn btn-light border px-3 shadow btn-dark rounded" role="button">
+        Welcome : Nabullah</a>
+                    <a class="btn btn-light border px-3 shadow btn-dark rounded" role="button">
+        Logout</a
+      ></ng-container>
+      </div>
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->

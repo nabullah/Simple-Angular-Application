@@ -1,7 +1,23 @@
+import { ProductInfoComponent } from './product-info/product-info.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { ContactComponent } from './contact/contact.component';
+import { ProductsComponent } from './products/products.component';
+import { GallaryComponent } from './gallary/gallary.component';
+import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'gallary', component: GallaryComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'product-info', component: ProductInfoComponent },
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
