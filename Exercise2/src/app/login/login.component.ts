@@ -18,22 +18,12 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this._loginButton.loginButton.next(true)
-    // this._logoutButton.logoutButton.next(false)
-    // this._loginButton.loginButton.next(false)
-    // this._logoutButton.logoutButton.next(true)
     this._userdata.userData().subscribe(data => {
-      console.log(this.userData = data)
+      // console.log(this.userData = data)
       this.userData = data
     })
   }
  
-  // const udata:any = this._userdata.userData.map((item:any) => {
-  //   return {
-  //     email: item.email,
-  //     password: item.password,
-  //   };
-  // });
   
   signIn(username: any, password: any) {
     // const user = this._userdata.userData

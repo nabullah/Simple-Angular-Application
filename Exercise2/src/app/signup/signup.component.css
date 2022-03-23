@@ -1,3 +1,12 @@
 .sign-up {
     width: 100%;
 }
+
+.col-md-10 {
+    margin: 3em auto;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+    box-shadow: 0 0 2px red;
+}
