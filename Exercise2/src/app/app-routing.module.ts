@@ -1,3 +1,4 @@
+import { GallaryImageComponent } from './gallary-image/gallary-image.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'product-info', component: ProductInfoComponent },
+  { path: 'gallary-image', component: GallaryImageComponent },
 
 ];
 

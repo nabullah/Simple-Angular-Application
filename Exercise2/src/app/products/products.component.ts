@@ -6,19 +6,20 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit, OnDestroy {
+export class ProductsComponent implements OnInit {
 
   constructor(private _navbarlink: HeaderServiceService) { }
-
-  ngOnInit(): void {
   
+  ngOnInit(): void {
+    
   }
-  buttonClick() {
-    this._navbarlink.navbarLink.next(false)
-    this._navbarlink.gobackProductButton.next(true);
-  }
-  OnDestroy() {
-    this._navbarlink.navbarLink.next(true)
-    this._navbarlink.gobackProductButton.next(false);
-  }
+  // buttonClick() {
+  //   this._navbarlink.navbarLink.next(false)
+  //   this._navbarlink.gobackProductButton.next(true);
+  // }
+  
+  // ngOnDestroy(): void {
+  //   this._navbarlink.navbarLink.next(true)
+  //   this._navbarlink.gobackProductButton.next(false);
+  // }
 }

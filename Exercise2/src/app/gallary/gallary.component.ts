@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HeaderServiceService } from './../services/header-service.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-gallary',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GallaryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _garllaryButton: HeaderServiceService,
+  private _headerLink:HeaderServiceService) { }
 
   ngOnInit(): void {
+    this._headerLink.navbarLink.next(true);
+   
   }
-
+  openImage() {
+   
+ }
+  // ngOnDestroy(): void {
+  //   this._headerLink.navbarLink.next(false);
+  // }
 }

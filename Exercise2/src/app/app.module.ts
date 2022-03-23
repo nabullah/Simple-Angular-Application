@@ -13,6 +13,7 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
+import { GallaryImageComponent } from './gallary-image/gallary-image.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ProductInfoComponent } from './product-info/product-info.component';
     LoginComponent,
     SignupComponent,
     ProductInfoComponent,
+    GallaryImageComponent,
   ],
   imports: [
     BrowserModule,
