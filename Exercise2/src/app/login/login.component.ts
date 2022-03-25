@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   signIn(username: any, password: any) {
     // const user = this._userdata.userData
-    if ((username.value === ('nabullah')) && (password.value === '12345')) {
+    if (password.value === '12345') {
       this._username.username.next(username.value)
       this._logoutButton.logoutButton.next(true)
       this._loginButton.loginButton.next(false)

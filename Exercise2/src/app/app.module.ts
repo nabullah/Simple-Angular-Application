@@ -17,6 +17,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { GallaryImageComponent } from './gallary-image/gallary-image.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SignupComponent,
     ProductInfoComponent,
     GallaryImageComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
