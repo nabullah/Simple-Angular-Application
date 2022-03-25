@@ -39,16 +39,14 @@ export class AddProductComponent implements OnInit {
     })
     // localStorage.setItem('addProduct', JSON.stringify(this.productList))
   }
-
   deleteProduct(i: any) {
-
     this.productList.splice(i, 1);
+    this.saveProduct();
     // localStorage.setItem('addProduct', JSON.stringify(this.productList))
   }
   saveProduct() {
     this._products.saveProduct(this.productList).subscribe(response => {
-      console.log(response)
-      // console.log(data)
+
     }, err => console.log(err))
   }
   fetchProduct() {
@@ -61,7 +59,6 @@ export class AddProductComponent implements OnInit {
     }, err => console.log(err))
 
     this._products.getTitle().subscribe(response => {
-      console.log(response);
       this.product = response;
     }, err => console.log(err))
   }
