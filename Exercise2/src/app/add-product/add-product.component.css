@@ -1,5 +1,6 @@
-.table{
-    overflow: scroll;
+.table_div{
+    overflow-y: auto;
+    height: 250px;
 }
 .delIcon{
     border: none;

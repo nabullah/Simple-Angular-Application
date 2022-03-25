@@ -1,3 +1,4 @@
+import { ProductsDBService } from './services/products-db.service';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +19,7 @@ import { ProductInfoComponent } from './product-info/product-info.component';
 import { GallaryImageComponent } from './gallary-image/gallary-image.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { AddProductComponent } from './add-product/add-product.component';
     ProductInfoComponent,
     GallaryImageComponent,
     AddProductComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import { AddProductComponent } from './add-product/add-product.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ProductsDBService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

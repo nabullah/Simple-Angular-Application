@@ -1,8 +1,8 @@
 
-<div class="container">
+<div class="container px-3 ">
     <h2 class="text-center"> Manage Products</h2>
-    <div class="col-md-12 border d-flex ">
-        <div class="col-md-4 border p-3 ">
+    <div class="col-md-12 d-flex shadow mt-5 ">
+        <div class="col-md-4 p-3 ">
             <h3 class="py-3 ">Add Product Here</h3>
             <form action="" class="form-control ">
                 <input type="text" class="form-control mb-3 mt-3" placeholder="Enter Product Id" #id>
@@ -10,32 +10,42 @@
                 <input type="text" class="form-control mb-3" placeholder="Enter Product Price" #price>
                 <div class="col-md-12 d-flex justify-content-evenly ">
                     <button type="button" class="btn btn-primary" (click)="addProduct(id,name,price)">Add Product</button>
-                    <button type="button" class="btn btn-info" (click)="saveProduct(id,name,price)">Save Product</button>
-                    <button type="button" class="btn btn-success" (click)="fetchProduct(id,name,price)">Fetch Product</button>
+                    <button type="button" class="btn btn-info" (click)="saveProduct()">Save Product</button>
+                    <button type="button" class="btn btn-success" (click)="fetchProduct()">Fetch Product</button>
                 </div>
             </form>
 
         </div>
-        <div class="col-md-8 border p-4">
-            <h3 class="text-lefttext-dark"> Product</h3>
-            <table class="table ">
-                <thead>
-                  <tr class="bg-info">
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Delete</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row"><strong>1</strong></th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td><button type="button" class="delIcon"><fa-icon [icon]="delIcon" class="delIcon text-danger"></fa-icon></button></td>
-                  </tr>
-                </tbody>
-              </table>
+        <div class="col-md-8 p-4">
+            <h3 class="text-left text-dark mb-4 mt-2"> {{this.product}}</h3>
+            <div class="col-md-12 table_div">
+                <table class="table">
+                    <thead>
+                      <tr class="bg-info">
+                        <th scope="col">SL No</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of productList; index as i">
+                        <th scope="row"><strong>{{i+1}}</strong></th>
+                        <th><strong>{{item.id}}</strong></th>
+                        <td>{{item.name}}</td>
+                        <td>Rs&nbsp;{{item.price}}</td>
+                        <td><button type="button" class="delIcon" (click)="deleteProduct(i)"><fa-icon [icon]="delIcon" class="delIcon text-danger"></fa-icon></button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="col-md-12 w-100 text-center mt-6" *ngIf="fetching">
+                  <!-- <app-spinner></app-spinner> -->
+                  <div class="spinner-border text-warning" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                </div>
+                  </div>
+            </div>
         </div>
     </div>
 </div>

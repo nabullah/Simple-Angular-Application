@@ -1,3 +1,4 @@
+import { ProductsDBService } from './../services/products-db.service';
 import { AddProductsService } from './../services/add-products.service';
 import { Component, OnInit } from '@angular/core';
 import { } from '@fortawesome/free-brands-svg-icons';
@@ -10,22 +11,58 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 export class AddProductComponent implements OnInit {
   delIcon = faTrash
   id !: any;
-  name!: string;
+  name!: any;
   price!: any;
-  constructor(private _addProducts: AddProductsService) {
+  productList: any = []
+  localItem: any;
+  toggle: boolean = true;
+  fetching: boolean = false
+  product: any = ''
+  constructor(private _addProducts: AddProductsService,
+    private _products: ProductsDBService) {
   }
-
   ngOnInit(): void {
+    // this.localItem = localStorage.getItem('addProduct')
+    // if (this.localItem === null) {
+    //   this.productList = []
+    // } else {
+    //   this.productList = JSON.parse(this.localItem)
+    // }
+    // console.log(this.productList)
+    this.fetchProduct();
   }
   addProduct(id: any, name: any, price: any) {
-    console.log(this.id = id.value);
-    console.log(this.name = name.value);
-    console.log(this.price = price.value)
+    this.productList.push({
+      id: id.value,
+      name: name.value,
+      price: price.value,
+    })
+    // localStorage.setItem('addProduct', JSON.stringify(this.productList))
   }
-  saveProduct(id: any, name: any, price: any) {
 
+  deleteProduct(i: any) {
+
+    this.productList.splice(i, 1);
+    // localStorage.setItem('addProduct', JSON.stringify(this.productList))
   }
-  fetchProduct(id: any, name: any, price: any) {
+  saveProduct() {
+    this._products.saveProduct(this.productList).subscribe(response => {
+      console.log(response)
+      // console.log(data)
+    }, err => console.log(err))
+  }
+  fetchProduct() {
+    this.fetching = true;
+    this._products.fetchProduct().subscribe(response => {
+      // console.log(response)
+      const data = JSON.stringify(response);
+      this.productList = JSON.parse(data);
+      this.fetching = false;
+    }, err => console.log(err))
 
+    this._products.getTitle().subscribe(response => {
+      console.log(response);
+      this.product = response;
+    }, err => console.log(err))
   }
 }
