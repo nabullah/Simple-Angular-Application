@@ -2,14 +2,17 @@ import { ProductsDBService } from './../services/products-db.service';
 import { AddProductsService } from './../services/add-products.service';
 import { Component, OnInit } from '@angular/core';
 import { } from '@fortawesome/free-brands-svg-icons';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
+  // Fontawe some
   delIcon = faTrash
+  editIcon = faEdit;
+  // _____________________________
   id !: any;
   name!: any;
   price!: any;

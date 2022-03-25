@@ -26,6 +26,7 @@
                         <th scope="col">Id</th>
                         <th scope="col">Name</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
                       </tr>
                     </thead>
@@ -35,6 +36,7 @@
                         <th><strong>{{item.id}}</strong></th>
                         <td>{{item.name}}</td>
                         <td>Rs&nbsp;{{item.price}}</td>
+                        <td><button type="button" class="delIcon" (click)="deleteProduct(i)"><fa-icon [icon]="editIcon" class="delIcon text-danger"></fa-icon></button></td>
                         <td><button type="button" class="delIcon" (click)="deleteProduct(i)"><fa-icon [icon]="delIcon" class="delIcon text-danger"></fa-icon></button></td>
                       </tr>
                     </tbody>
