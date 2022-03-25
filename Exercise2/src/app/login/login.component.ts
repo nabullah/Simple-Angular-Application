@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
     private _logoutButton: HeaderServiceService,
     private _username: HeaderServiceService,
     private router: Router,
-    private _userdata:UserdataService
+    private _userdata: UserdataService
   ) { }
 
   ngOnInit(): void {
@@ -23,11 +23,11 @@ export class LoginComponent implements OnInit {
       this.userData = data
     })
   }
- 
-  
+
+
   signIn(username: any, password: any) {
     // const user = this._userdata.userData
-    if ((username.value === (this._userdata.userData)) && (password.value === (this._userdata.userData))) {
+    if ((username.value === ('nabullah')) && (password.value === '12345')) {
       this._username.username.next(username.value)
       this._logoutButton.logoutButton.next(true)
       this._loginButton.loginButton.next(false)
