@@ -8,22 +8,15 @@ import { Observable, Subject, BehaviorSubject } from 'rxjs';
 export class UserdataService {
   userData: any = []
   localItem: any;
-  getLocalStorage: any
   data = new BehaviorSubject<any>(this.userData);
 
   constructor() {
-
+    this.userData = JSON.parse(localStorage.getItem('user') || '{}')
   }
   saveUserData(info: any) {
     this.userData.push(info)
-    this.localItem = localStorage.setItem('user', JSON.stringify(this.userData));
-    // this.userData.push(localItem);
-    console.log(this.localItem);
+    localStorage.setItem('user', JSON.stringify(this.userData))
   }
-  // getUserData() {
-  //   console.log(this.userData.value)
-  //   this.getLocalStorage = JSON.parse(localStorage.getItem("user") || '{}')
-  //   console.log(this.getLocalStorage)
-  // }
+
 
 }

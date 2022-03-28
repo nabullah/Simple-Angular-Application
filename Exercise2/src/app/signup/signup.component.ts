@@ -24,10 +24,13 @@ export class SignupComponent implements OnInit {
     private _userData: UserdataService,
 
     // private _createUserDB: UserdataService
-  ) { }
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.createUser();
+    console.log(this._userData.userData)
   }
   createUser() {
     this.signup = this.fb.group({
