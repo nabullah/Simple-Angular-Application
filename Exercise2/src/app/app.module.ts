@@ -1,3 +1,4 @@
+import { UserdataService } from './services/userdata.service';
 import { ProductsDBService } from './services/products-db.service';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -44,7 +45,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ProductsDBService],
+  providers: [ProductsDBService,
+    UserdataService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
