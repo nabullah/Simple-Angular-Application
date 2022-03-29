@@ -1,3 +1,4 @@
+import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { GallaryImageComponent } from './gallary-image/gallary-image.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'product-info', component: ProductInfoComponent },
   { path: 'gallary-image', component: GallaryImageComponent },
   { path: 'add-product', component: AddProductComponent },
+  { path: 'userdetails', component: UserdetailsComponent },
 
 ];
 

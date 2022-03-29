@@ -1,4 +1,10 @@
-<div class="container col-md-4 border shadow ">
+<div class="col-md-4 container m-auto mt-4" *ngIf="alertActive">
+    <div class="alert alert-danger text-center" role="alert">
+      <span> Wrong Password or Username!!</span>
+      </div>
+</div>
+<div class="container col-md-4 border shadow form-container">
+    
     <div class="row main-row">
         <div class="col-md-10 m-auto">
             <form [formGroup]="signin" (ngSubmit)="onSubmit()">

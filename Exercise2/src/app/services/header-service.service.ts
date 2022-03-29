@@ -11,6 +11,11 @@ export class HeaderServiceService {
   backProduct = new BehaviorSubject(false);
   loginButton = new BehaviorSubject(true)
   logoutButton = new BehaviorSubject(false)
+  loginAlert = new BehaviorSubject(false)
   username = new Subject<any>();
-  constructor() { }
+  constructor() {
+
+  }
+
+
 }

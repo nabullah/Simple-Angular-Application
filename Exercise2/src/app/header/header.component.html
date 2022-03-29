@@ -45,22 +45,21 @@
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/add-product">Add Product</a>
                     </li>
+                    <ng-container *ngIf="userLoggedIn">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/userdetails">User</a>
+                        </li>
+                    </ng-container>
                 </ul>
             </div>
             <!-- Left links -->
             <div class="d-flex align-items-center leftbuttons">
                 <ng-container *ngIf="loginButtons">
-                    <button type="button" class="btn btn-primary px-3 me-2" routerLink="/login">
-          Login
-        </button>
-                    <button type="button" class="btn btn-primary me-3" routerLink="/signup">
-          Sign up
-        </button>
+                    <button type="button" class="btn btn-primary px-3 me-2" routerLink="/login">Login</button>
+                    <button type="button" class="btn btn-primary me-3" routerLink="/signup">Sign up</button>
                 </ng-container>
-                <ng-container *ngIf="logoutButtons"> <a class="btn btn-light border px-3 shadow btn-dark rounded" role="button">
-        Welcome : {{username}}</a>
-                    <a class="btn btn-light border px-3 shadow btn-dark rounded" role="button" (click)="logOut()" routerLink="/login">
-        Logout</a
+                <ng-container *ngIf="logoutButtons"> <a class="btn btn-light border px-3 shadow btn-dark rounded" role="button">Welcome : {{username}}</a>
+                    <a class="btn btn-light border px-3 shadow btn-dark rounded" role="button" (click)="logOut()" routerLink="/login">Logout</a
       ></ng-container>
       </div>
     </div>

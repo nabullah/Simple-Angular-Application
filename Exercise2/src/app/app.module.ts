@@ -21,6 +21,7 @@ import { GallaryImageComponent } from './gallary-image/gallary-image.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { UserdetailsComponent } from './userdetails/userdetails.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     GallaryImageComponent,
     AddProductComponent,
     SpinnerComponent,
+    UserdetailsComponent,
   ],
   imports: [
     BrowserModule,
