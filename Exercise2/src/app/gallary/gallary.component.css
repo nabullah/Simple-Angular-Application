@@ -5,3 +5,8 @@
 .col-lg-4{
     width: 33%;
 }
+.img{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

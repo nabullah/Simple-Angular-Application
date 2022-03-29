@@ -7,3 +7,9 @@
     /* outline: none; */
     background-color: white;
 }
+.bg-dark{
+    color: white;
+}
+.btn{
+    padding: 7px;
+}

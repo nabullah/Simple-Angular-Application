@@ -1,3 +1,4 @@
+import { GallaryItems } from './appModals/gallary';
 import { UserdataService } from './services/userdata.service';
 import { ProductsDBService } from './services/products-db.service';
 import { NgModule } from '@angular/core';
@@ -45,10 +46,11 @@ import { UserdetailsComponent } from './userdetails/userdetails.component';
     BrowserAnimationsModule,
     FontAwesomeModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [ProductsDBService,
-    UserdataService],
+    UserdataService,
+    GallaryItems],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

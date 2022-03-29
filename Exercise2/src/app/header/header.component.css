@@ -3,6 +3,7 @@
 }
 .back{
     list-style: none;
+    margin-left: 2em;
 }
 .leftbuttons{
     margin-left: auto;
@@ -11,4 +12,8 @@
 ul li a:hover{
     background-color: #0d6dfd;
     color: white;
+}
+.ul a{
+    /* font-weight: 600; */
+    color: #354165
 }

@@ -1,3 +1,4 @@
+import { GallaryItems } from './../appModals/gallary';
 import { HeaderServiceService } from './../services/header-service.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
@@ -8,17 +9,14 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class GallaryComponent implements OnInit {
 
-  constructor(private _garllaryButton: HeaderServiceService,
-  private _headerLink:HeaderServiceService) { }
+  gallaryImages = []
+  constructor(
+    private _gallaryItems: GallaryItems,
+    private _headerLink: HeaderServiceService) { }
 
   ngOnInit(): void {
     this._headerLink.navbarLink.next(true);
-   
+    this.gallaryImages = this._gallaryItems.gallaryImages;
+    console.log(this.gallaryImages)
   }
-  openImage() {
-   
- }
-  // ngOnDestroy(): void {
-  //   this._headerLink.navbarLink.next(false);
-  // }
 }

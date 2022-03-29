@@ -25,13 +25,6 @@ export class AddProductComponent implements OnInit {
     private _products: ProductsDBService) {
   }
   ngOnInit(): void {
-    // this.localItem = localStorage.getItem('addProduct')
-    // if (this.localItem === null) {
-    //   this.productList = []
-    // } else {
-    //   this.productList = JSON.parse(this.localItem)
-    // }
-    // console.log(this.productList)
     this.fetchProduct();
   }
   addProduct(id: any, name: any, price: any) {
