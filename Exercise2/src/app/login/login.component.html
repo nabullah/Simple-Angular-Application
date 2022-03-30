@@ -1,34 +1,50 @@
-<div class="col-md-4 container m-auto mt-4" *ngIf="alertActive">
-    <div class="alert alert-danger text-center" role="alert">
-      <span> Wrong Password or Username!!</span>
-      </div>
+<div class="col-md-4 container m-auto mt-4" *ngIf="alertActive" [@openClose]>
+  <div class="alert alert-danger text-center" role="alert">
+    <span> Wrong Password or Username!!</span>
+  </div>
 </div>
 <div class="container col-md-4 border shadow form-container">
-    
-    <div class="row main-row">
-        <div class="col-md-10 m-auto">
-            <form [formGroup]="signin" (ngSubmit)="onSubmit()">
-                <h3 class="text-center p-4">LogIn</h3>
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                    <input type="text" id="text" class="form-control" placeholder="Username" #username formControlName="username"/>
-                    <!-- <label class="form-label" for="form1Example1">Email address</label> -->
-                </div>
-
-                <!-- Password input -->
-                <div class="form-outline mb-4">
-                    <input type="password" id="password" class="form-control" placeholder="Password" #password formControlName="password" />
-                    <!-- <label class="form-label" for="form1Example2">Password</label> -->
-                </div>
-                    <div class="col">
-                        <!-- Simple link -->
-                        <a href="#!">Forgot password?</a>
-                    </div>
-                <!-- </div> -->
-
-                <!-- Submit button -->
-                <button type="button" class="btn btn-primary btn-block mb-4"  (click)="signIn(username,password)" >Sign in</button>
-            </form>
+  <div class="row main-row">
+    <div class="col-md-10 m-auto">
+      <form [formGroup]="signin" (ngSubmit)="onSubmit()">
+        <h3 class="text-center p-4">LogIn</h3>
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="text"
+            class="form-control"
+            placeholder="Username"
+            #username
+            formControlName="username"
+          />
         </div>
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Password"
+            #password
+            formControlName="password"
+          />
+        </div>
+        <div class="col">
+          <!-- Simple link -->
+          <a href="#!">Forgot password?</a>
+        </div>
+        <!-- </div> -->
+
+        <!-- Submit button -->
+        <button
+          type="button"
+          class="btn btn-primary btn-block mb-4"
+          (click)="signIn(username, password)"
+        >
+          Sign in
+        </button>
+      </form>
     </div>
+  </div>
 </div>

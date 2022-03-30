@@ -11,26 +11,25 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class GallaryImageComponent implements OnInit, OnDestroy {
 
   gallaryItems: any = [];
-  selectedItem: any;
+  selectedItem: any = [];
   id: any;
   constructor(
     private _navbarLink: HeaderServiceService,
     private _backGallary: HeaderServiceService,
     private gallaryImages: GallaryItems,
     private _activatedRoute: ActivatedRoute
-  ) { }
+  ) {
+    this._activatedRoute.params.subscribe((params: Params) => {
+      this.id = + params['id'];
+    })
+  }
 
   ngOnInit(): void {
     this._navbarLink.navbarLink.next(false)
     this._backGallary.backGallary.next(true)
     this.gallaryItems = this.gallaryImages.gallaryImages
-    this.selectedItem = this.gallaryItems[this.id]
-    // console.log(this.selectedItem)
-    this._activatedRoute.params.subscribe((params: Params) => {
-      this.id = params['id'];
+    this.selectedItem = this.gallaryItems[this.id - 1]
 
-    })
-    console.log(this.id)
   }
   ngOnDestroy(): void {
     this._navbarLink.navbarLink.next(true)

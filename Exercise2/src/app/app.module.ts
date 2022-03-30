@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +22,30 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
+import {
+  NgxUiLoaderConfig,
+  NgxUiLoaderModule,
+  NgxUiLoaderRouterModule,
+  PB_DIRECTION, POSITION, SPINNER,
+} from "ngx-ui-loader";
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
+const ngxUiLoaderConfig: NgxUiLoaderConfig = {
+  bgsColor: "red",
+  fgsColor: '#0d6efd',
+  fgsPosition: 'center-center',
+  blur: 1,
+  fgsSize: 100,
+  minTime: 50,
+  bgsPosition: POSITION.bottomCenter,
+  bgsSize: 40,
+  // bgsType: SPINNER.rectangleBounce, // background spinner type
+  fgsType: SPINNER.squareJellyBox, // foreground spinner type
+  pbDirection: PB_DIRECTION.leftToRight, // progress bar direction
+  pbThickness: 7, // progress bar thickness
+  pbColor: '#0d6efd',
+
+};
 
 @NgModule({
   declarations: [
@@ -39,6 +62,7 @@ import { UserdetailsComponent } from './userdetails/userdetails.component';
     AddProductComponent,
     SpinnerComponent,
     UserdetailsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -47,10 +71,14 @@ import { UserdetailsComponent } from './userdetails/userdetails.component';
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+    NgxUiLoaderRouterModule,
   ],
-  providers: [ProductsDBService,
+  providers: [
+    ProductsDBService,
     UserdataService,
-    GallaryItems],
+    GallaryItems
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

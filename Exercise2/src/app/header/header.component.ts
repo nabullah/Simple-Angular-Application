@@ -1,3 +1,4 @@
+import { state, style, transition, animate, trigger } from '@angular/animations';
 import { UserdataService } from './../services/userdata.service';
 import { AuthenticationService } from './../services/authentication.service';
 import { HeaderServiceService } from '../services/header-service.service';
@@ -8,7 +9,8 @@ import { faBars, faBiohazard, faCircleArrowLeft } from '@fortawesome/free-solid-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+
 })
 export class HeaderComponent implements OnInit {
   // fontAwesome Icons 
@@ -16,6 +18,7 @@ export class HeaderComponent implements OnInit {
   logo = faBiohazard;
   bars = faBars;
   circleleft = faCircleArrowLeft;
+  isOpen: boolean = true;
 
   backProductButtons: boolean = false;//Back Product Buttons
   backGallaryButtons: boolean = false;//Back Gallary Buttons
@@ -63,6 +66,7 @@ export class HeaderComponent implements OnInit {
     this.checkLoginState()
     // console.log(this.username)
   }
+
   logOut() {
     this._loginButton.loginButton.next(true);
     this._logoutButton.logoutButton.next(false);
@@ -84,4 +88,8 @@ export class HeaderComponent implements OnInit {
       // localStorage.setItem('userLogin', '0')
     }
   }
+
 }
+
+// Animations
+

@@ -13,8 +13,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'gallary', component: GallaryComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'gallary', component: GallaryComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },

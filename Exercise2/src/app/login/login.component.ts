@@ -4,11 +4,32 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HeaderServiceService } from './../services/header-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [
+    trigger('openClose', [
+
+      state('void => *', style({
+        transform: 'scale(1,1)'
+      })),
+      state('* => void', style({
+        transform: 'scale3d(.5, .5, .5)'
+      })),
+
+      transition('void => *', [
+        animate(1000)
+      ]),
+
+      transition('* => void', [
+        animate('3s ease-out')
+      ]),
+    ]),
+
+  ]
 })
 export class LoginComponent implements OnInit {
   userdata: any = []
@@ -18,6 +39,7 @@ export class LoginComponent implements OnInit {
   pass: any
   alertActive: boolean = false
   username: any;
+  isOpen: boolean = true;
 
   constructor(private _loginButton: HeaderServiceService,
     private _logoutButton: HeaderServiceService,
@@ -72,8 +94,6 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('username', this.getLocalStorage[i].firstname + " " + this.getLocalStorage[i].lastname)
     }
   }
-
-
 
 }
 
