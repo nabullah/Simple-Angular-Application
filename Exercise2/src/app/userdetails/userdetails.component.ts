@@ -17,6 +17,7 @@ export class UserdetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.localStorageUsers = JSON.parse(localStorage.getItem('user') || '{}')
+    console.log(this.localStorageUsers)
   }
   deleteUser(i: any) {
     const index = this.localStorageUsers.indexOf(i);

@@ -18,7 +18,7 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
-import { GallaryImageComponent } from './gallary-image/gallary-image.component';
+import { GallaryImageComponent } from './gallary/gallary-image/gallary-image.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
 import { SpinnerComponent } from './spinner/spinner.component';

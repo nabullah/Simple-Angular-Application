@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
         this._logoutButton.logoutButton.next(true)
         this._loginButton.loginButton.next(false)
         this._authentication.isLoggedIn.next(true)
-        this.router.navigate(['products'])
+        this.router.navigate([''])
         localStorage.setItem('userLogin', '1')
       } else {
         this._loginAlert.loginAlert.next(true);

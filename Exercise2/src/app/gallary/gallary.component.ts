@@ -17,6 +17,6 @@ export class GallaryComponent implements OnInit {
   ngOnInit(): void {
     this._headerLink.navbarLink.next(true);
     this.gallaryImages = this._gallaryItems.gallaryImages;
-    console.log(this.gallaryImages)
+    // console.log(this.gallaryImages)
   }
 }
