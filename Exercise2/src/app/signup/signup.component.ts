@@ -34,10 +34,10 @@ export class SignupComponent implements OnInit {
   }
   createUser() {
     this.signup = this.fb.group({
-      'firstname': ['Nabullah', Validators.required],
-      'lastname': ['Ansari', Validators.required],
-      'email': ['n@g.com', [Validators.required, Validators.email]],
-      'password': ['123456', [Validators.minLength(6), Validators.required]]
+      'firstname': ['', Validators.required],
+      'lastname': ['', Validators.required],
+      'email': ['', [Validators.required, Validators.email]],
+      'password': ['', [Validators.minLength(6), Validators.required]]
     })
   }
   onSubmit() {

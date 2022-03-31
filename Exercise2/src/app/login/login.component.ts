@@ -53,8 +53,8 @@ export class LoginComponent implements OnInit {
   }
   receiveUser() {
     this.signin = this.fb.group({
-      'username': ['Nabullah', Validators.required],
-      'password': ['123456', Validators.minLength(6)]
+      'username': ['', Validators.required],
+      'password': ['', Validators.minLength(6)]
     })
   }
 
