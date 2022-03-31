@@ -8,81 +8,34 @@
           <div class="col">
             <div class="form-outline">
               <input
-                type="text"
-                id="form3Example1"
-                class="form-control"
-                placeholder="First Name"
-                formControlName="firstname"
-              />
-              <!-- <label class=" form-label " for="form3Example1 ">First name</label> -->
+                type="text" id="form3Example1" class="form-control" placeholder="First Name" formControlName="firstname"/>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
-              <input
-                type="text "
-                id="form3Example2 "
-                class="form-control"
-                placeholder="Last Name"
-                formControlName="lastname"
-              />
-              <!-- <label class="form-label " for="form3Example2 ">Last name</label> -->
+              <input type="text " class="form-control" placeholder="Last Name" formControlName="lastname"/>
             </div>
           </div>
         </div>
-
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input
-            type="email "
-            id="form3Example3 "
-            class="form-control"
-            placeholder="Email"
-            #email
-            formControlName="email"
-          />
-          <!-- <label class="form-label " for="form3Example3 ">Email address</label> -->
+          <input type="email " id="form3Example3 " class="form-control" placeholder="Email" #email formControlName="email"/>
         </div>
-
         <!-- Password input -->
         <div class="form-outline mb-4">
           <input
-            type="password"
-            id="form3Example4 "
-            class="form-control"
-            placeholder="Password "
-            formControlName="password"
-          />
-          <!-- <label class="form-label " for="form3Example4 ">Password</label> -->
+            type="password" id="form3Example4 " class="form-control" placeholder="Password " formControlName="password"/>
         </div>
-
         <!-- Submit button -->
-        <button
-          type="submit"
-          class="btn btn-primary btn-block mb-4 sign-up"
-          [disabled]="!signup.valid"
-        >
-          Sign up
-        </button>
-
+        <button type="submit"class="btn btn-primary btn-block mb-4 sign-up" [disabled]="!signup.valid" > Sign up</button>
         <!-- Register buttons -->
         <div class="text-center">
           <p>or sign up with:</p>
-          <button type="button " class="btn btn-primary btn-floating mx-1">
-            <fa-icon [icon]="faGoogle"></fa-icon>
-          </button>
-
-          <button type="button " class="btn btn-primary btn-floating mx-1">
-            <fa-icon [icon]="faFacebook"></fa-icon>
-          </button>
-
-          <button type="button " class="btn btn-primary btn-floating mx-1">
-            <fa-icon [icon]="faTwitter"></fa-icon>
-          </button>
-
-          <button type="button " class="btn btn-primary btn-floating mx-1">
-            <fa-icon [icon]="faGithub"></fa-icon>
-          </button>
+          <button 
+          type="button " class="btn btn-primary btn-floating mx-1"> <fa-icon [icon]="faGoogle"></fa-icon> </button>
+          <button type="button " class="btn btn-primary btn-floating mx-1"><fa-icon [icon]="faFacebook"></fa-icon> </button>
+          <button type="button " class="btn btn-primary btn-floating mx-1"><fa-icon [icon]="faTwitter"></fa-icon> </button>
+          <button type="button " class="btn btn-primary btn-floating mx-1"><fa-icon [icon]="faGithub"></fa-icon></button>
         </div>
       </form>
     </div>
