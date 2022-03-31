@@ -28,7 +28,7 @@ import {
   NgxUiLoaderRouterModule,
   PB_DIRECTION, POSITION, SPINNER,
 } from "ngx-ui-loader";
-import { trigger, state, style, animate, transition } from '@angular/animations';
+
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: "red",
