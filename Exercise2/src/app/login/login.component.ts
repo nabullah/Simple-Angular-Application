@@ -1,9 +1,9 @@
-import { AuthenticationService } from './../services/authentication.service';
-
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HeaderServiceService } from './../services/header-service.service';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from './../services/authentication.service';
+import { HeaderServiceService } from './../services/header-service.service';
+
 
 
 @Component({
@@ -61,18 +61,24 @@ export class LoginComponent implements OnInit {
   signIn(uname: any, pass: any) {
     this.getLocalStorage = JSON.parse(localStorage.getItem("user") || '{}')
     // console.log(this.getLocalStorage)
-    for (var i = 0; i < this.getLocalStorage.length; i++) {
-      if (this.getLocalStorage[i].firstname === uname.value && this.getLocalStorage[i].password === pass.value) {
-        this._username.username.next(this.getLocalStorage[i].firstname + " " + this.getLocalStorage[i].lastname)
-        this._logoutButton.logoutButton.next(true)
-        this._loginButton.loginButton.next(false)
-        this._authentication.isLoggedIn.next(true)
-        this.router.navigate([''])
-        localStorage.setItem('userLogin', '1')
-      } else {
-        this._loginAlert.loginAlert.next(true);
+    if (localStorage.getItem('user') !== null) {
+
+      for (var i = 0; i < this.getLocalStorage.length; i++) {
+        if (this.getLocalStorage[i].firstname === uname.value && this.getLocalStorage[i].password === pass.value) {
+          this._username.username.next(this.getLocalStorage[i].firstname + " " + this.getLocalStorage[i].lastname)
+          this._logoutButton.logoutButton.next(true)
+          this._loginButton.loginButton.next(false)
+          this._authentication.isLoggedIn.next(true)
+          this.router.navigate([''])
+          localStorage.setItem('userLogin', '1')
+        } else {
+          this._loginAlert.loginAlert.next(true);
+        }
+        localStorage.setItem('username', this.getLocalStorage[i].firstname + " " + this.getLocalStorage[i].lastname)
       }
-      localStorage.setItem('username', this.getLocalStorage[i].firstname + " " + this.getLocalStorage[i].lastname)
+
+    } else {
+      this._loginAlert.loginAlert.next(true);
     }
   }
 

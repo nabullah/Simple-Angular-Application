@@ -19,15 +19,19 @@
         </div>
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="email " id="form3Example3 " class="form-control" placeholder="Email" #email formControlName="email"/>
+          <input type="email " id="form3Example3 " class="form-control" placeholder="Email"  formControlName="email"/>
+          <small class="text-danger mt-1" *ngIf="f['email'].errors?.['email'] || f['email'].errors?.['pattern'] ">Please Enter Valid Email</small>
         </div>
         <!-- Password input -->
         <div class="form-outline mb-4">
-          <input
-            type="password" id="form3Example4 " class="form-control" placeholder="Password " formControlName="password"/>
+          <input type="password" id="form3Example4 " class="form-control" placeholder="Password " formControlName="password"/>
+          <!-- <small class="text-danger mt-1" *ngIf="f['password'].errors?.['required']">Please Enter Password</small> -->
+        </div>
+        <div class="form-outline mb-4">
+          <input type="password" id="form3Example4 " class="form-control" placeholder="Confirlm Password" formControlName="confirmpassword"/>
         </div>
         <!-- Submit button -->
-        <button type="submit"class="btn btn-primary btn-block mb-4 sign-up" [disabled]="!signup.valid" > Sign up</button>
+        <button type="submit"class="btn btn-primary btn-block mb-4 sign-up" [disabled]="!signup.valid" routerLink="/login" > Sign up</button>
         <!-- Register buttons -->
         <div class="text-center">
           <p>or sign up with:</p>

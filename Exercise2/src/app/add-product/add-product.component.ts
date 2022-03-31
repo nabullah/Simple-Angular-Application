@@ -33,6 +33,7 @@ export class AddProductComponent implements OnInit {
       name: name.value,
       price: price.value,
     })
+    this.saveProduct();
     // localStorage.setItem('addProduct', JSON.stringify(this.productList))
   }
   deleteProduct(i: any) {
@@ -41,9 +42,9 @@ export class AddProductComponent implements OnInit {
     // localStorage.setItem('addProduct', JSON.stringify(this.productList))
   }
   saveProduct() {
-    this._products.saveProduct(this.productList).subscribe(response => {
-
-    }, err => console.log(err))
+    this._products.saveProduct(this.productList).subscribe((response) =>
+      console.log(response)
+      , err => console.log(err))
   }
   fetchProduct() {
     this.fetching = true;

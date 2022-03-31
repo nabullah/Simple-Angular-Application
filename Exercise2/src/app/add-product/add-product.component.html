@@ -8,9 +8,9 @@
                 <input type="text" class="form-control mb-3 mt-3" placeholder="Enter Product Id" #id>
                 <input type="text" class="form-control mb-3" placeholder="Enter Product Name" #name>
                 <input type="text" class="form-control mb-3" placeholder="Enter Product Price" #price>
-                <div class="col-md-12 d-flex justify-content-evenly ">
+                <div class="col-md-12 d-flex gap-2 ">
                     <button type="button" class="btn btn-primary" (click)="addProduct(id,name,price)">Add Product</button>
-                    <button type="button" class="btn btn-info" (click)="saveProduct()">Save Product</button>
+                    <!-- <button type="button" class="btn btn-info" (click)="saveProduct()">Save Product</button> -->
                     <button type="button" class="btn btn-success" (click)="fetchProduct()">Fetch Product</button>
                 </div>
             </form>
@@ -36,7 +36,7 @@
                         <th><strong>{{item.id}}</strong></th>
                         <td>{{item.name}}</td>
                         <td>Rs&nbsp;{{item.price}}</td>
-                        <td><button type="button" class="delIcon" (click)="deleteProduct(i)"><fa-icon [icon]="editIcon" class="delIcon text-danger"></fa-icon></button></td>
+                        <td><button type="button" class="delIcon" ><fa-icon [icon]="editIcon" class="delIcon text-danger"></fa-icon></button></td>
                         <td><button type="button" class="delIcon" (click)="deleteProduct(i)"><fa-icon [icon]="delIcon" class="delIcon text-danger"></fa-icon></button></td>
                       </tr>
                     </tbody>
