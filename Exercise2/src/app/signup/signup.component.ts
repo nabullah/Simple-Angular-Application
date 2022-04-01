@@ -1,8 +1,9 @@
-
+import { Router } from '@angular/router';
 import { UserdataService } from './../services/userdata.service';
 import { Component, OnInit, } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faFacebook, faGithub, faGoogle, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { format } from 'path';
 
 
 @Component({
@@ -17,13 +18,13 @@ export class SignupComponent implements OnInit {
   faTwitter = faTwitter;
   faGithub = faGithub
   // userData: any = []
-  confirmpassword: any;
+  confirmpassword: boolean = false;
+  submitted: boolean = true
 
   constructor(private fb: FormBuilder,
+    private router: Router,
     // private http: HttpClient,
-
     private _userData: UserdataService,
-
     // private _createUserDB: UserdataService
   ) {
 
@@ -32,6 +33,11 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     this.createUser();
     console.log(this._userData.userData)
+    // this.formValidCheck()
+    this.submitted = true
+    if (this.signup.errors) {
+      return
+    }
   }
   createUser() {
     this.signup = this.fb.group({
@@ -44,11 +50,32 @@ export class SignupComponent implements OnInit {
     })
   }
   onSubmit() {
-    this._userData.saveUserData(this.signup.value)
-    this.signup.reset();
+    if (this.signup.valid) {
+      // this.submitted = false/
+      if (this.signup.value.password === this.signup.value.confirmpassword) {
+        this._userData.saveUserData(this.signup.value)
+        this.router.navigate(['login']);
+        this.signup.reset();
+      } else {
+        this.confirmpassword = true;
+      }
+    } else {
+      this.submitted = true
+    }
   }
-  get f() {
-    return this.signup.controls
+  get f(): { [key: string]: AbstractControl } {
+    return this.signup.controls;
   }
-}
+  // formValidCheck() {
+  //   this.signup.get('email')?.errors
+  //   this.signup.get('firstname')?.errors
+  //   this.signup.get('lastname')?.errors
+  //   this.signup.get('password')?.errors
+  //   this.signup.get('confirmpassword')?.errors
 
+  //   return
+  // }
+
+
+
+}

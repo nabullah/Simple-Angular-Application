@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/auth.guard';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { GallaryImageComponent } from './gallary/gallary-image/gallary-image.component';
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'gallary', component: GallaryComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', canActivate: [AuthGuard], component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'product-info', component: ProductInfoComponent },
   { path: 'gallary-image/:id', component: GallaryImageComponent },

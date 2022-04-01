@@ -8,30 +8,38 @@
           <div class="col">
             <div class="form-outline">
               <input
-                type="text" id="form3Example1" class="form-control" placeholder="First Name" formControlName="firstname"/>
+                type="text" id="firstname" class="form-control" placeholder="First Name" formControlName="firstname"/>
+                <!-- <span class="text-danger" *ngIf="f['firstname'].errors?.['required']">Enter First Name</span> -->
+                <span class="text-danger error_text"  *ngIf="signup.get('firstname')?.touched && signup.get('firstname')?.invalid && signup.get('firstname')?.errors?.['required']">Enter First Name</span>
+                <!-- <span class="text-danger error_text"  *ngIf="f['firstname'].errors?.['required']">Enter First Name</span> -->
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
               <input type="text " class="form-control" placeholder="Last Name" formControlName="lastname"/>
+              <span class="text-danger error_text"  *ngIf="submitted && submitted && signup.get('lastname')?.touched && signup.get('lastname')?.invalid && signup.get('lastname')?.errors?.['required']">Enter Last Name</span>
             </div>
           </div>
         </div>
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="email " id="form3Example3 " class="form-control" placeholder="Email"  formControlName="email"/>
-          <small class="text-danger mt-1" *ngIf="f['email'].errors?.['email'] || f['email'].errors?.['pattern'] ">Please Enter Valid Email</small>
+          <input type="email " id="email " class="form-control" placeholder="Email"  formControlName="email"/>
+          <span class="text-danger mt-1 error_text" *ngIf="submitted && f['email'].errors?.['email'] || f['email'].errors?.['pattern']">Please Enter Valid Email</span>
+          <span class="text-danger mt-1 error_text" *ngIf="submitted&&  signup.get('email')?.touched && signup.get('email')?.invalid">Enter Email</span>
         </div>
-        <!-- Password input -->
+ 
         <div class="form-outline mb-4">
-          <input type="password" id="form3Example4 " class="form-control" placeholder="Password " formControlName="password"/>
-          <!-- <small class="text-danger mt-1" *ngIf="f['password'].errors?.['required']">Please Enter Password</small> -->
+          <input type="password" id="password " class="form-control" placeholder="Password " formControlName="password" />
+          <span class="text-danger error_text"  *ngIf="submitted && signup.get('password')?.touched && signup.get('password')?.invalid">Enter Password</span>
         </div>
         <div class="form-outline mb-4">
-          <input type="password" id="form3Example4 " class="form-control" placeholder="Confirlm Password" formControlName="confirmpassword"/>
+          <input type="password" id="confirmpassword " class="form-control" placeholder="Confirm Password" formControlName="confirmpassword"/>
+          <span class="text-danger error_text" *ngIf="submitted && confirmpassword">Password Not Matched</span>
+          <span class="text-danger error_text" *ngIf="submitted && signup.get('confirmpassword')?.touched && signup.get('confirmpassword')?.invalid">Confirm Password</span>
+
         </div>
         <!-- Submit button -->
-        <button type="submit"class="btn btn-primary btn-block mb-4 sign-up" [disabled]="!signup.valid" routerLink="/login" > Sign up</button>
+        <button type="submit"class="btn btn-primary btn-block mb-4 sign-up"> Sign up</button>
         <!-- Register buttons -->
         <div class="text-center">
           <p>or sign up with:</p>

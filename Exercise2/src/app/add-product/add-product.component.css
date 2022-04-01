@@ -13,3 +13,13 @@
 .btn{
     padding: 7px;
 }
+.page_title{
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+.alert{
+    position: absolute;
+    width: 84%;
+    top: 92px;
+text-align: center;
+}

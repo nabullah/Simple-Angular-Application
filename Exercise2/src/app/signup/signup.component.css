@@ -8,3 +8,7 @@ input.ng-invalid.ng-touched {
     border: 1px solid red;
     box-shadow: 0 0 2px red;
 }
+.error_text{
+    font-size: 13px;
+    margin-left: 3px;
+}

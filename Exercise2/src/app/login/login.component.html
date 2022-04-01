@@ -11,22 +11,24 @@
         <!-- Email input -->
         <div class="form-outline mb-4">
           <input
-            type="text" id="text" class="form-control" placeholder="Username" #username formControlName="username" />
+            type="email" id="text" class="form-control" placeholder="Email" #email formControlName="email" />
+            <span class="text-danger mt-1 error_text" *ngIf="f['email'].errors?.['email'] || f['email'].errors?.['pattern']">Please Enter Valid Email</span>
+
         </div>
         <!-- Password input -->
         <div class="form-outline mb-4">
           <input
             type="password" id="password" class="form-control" placeholder="Password" #password formControlName="password" />
+            <span class="text-danger error_text"  *ngIf="signin.get('password')?.touched && signin.get('password')?.invalid">Enter Password</span>
         </div>
         <div class="col">
           <!-- Simple link -->
           <a href="#!">Forgot password?</a>
         </div>
-        <!-- </div> -->
         <!-- Submit button -->
         <button
           type="button"
-          class="btn btn-primary btn-block mb-4"(click)="signIn(username, password)" [disabled]="!signin.valid" > Sign in
+          class="btn btn-primary btn-block mb-4"(click)="signIn(email, password)" > Sign in
         </button>
       </form>
     </div>

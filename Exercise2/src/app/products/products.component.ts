@@ -1,3 +1,4 @@
+
 import { HeaderServiceService } from './../services/header-service.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
@@ -8,18 +9,15 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private _navbarlink: HeaderServiceService) { }
+  productList: any = []
+
+  constructor(private _navbarlink: HeaderServiceService,
+
+  ) { }
 
   ngOnInit(): void {
-
+    // console.log(this.productArray.productArray)
+    // this.productList = this._productArray.productArray;
+    // console.log(this.productList)
   }
-  // buttonClick() {
-  //   this._navbarlink.navbarLink.next(false)
-  //   this._navbarlink.gobackProductButton.next(true);
-  // }
-
-  // ngOnDestroy(): void {
-  //   this._navbarlink.navbarLink.next(true)
-  //   this._navbarlink.gobackProductButton.next(false);
-  // }
 }

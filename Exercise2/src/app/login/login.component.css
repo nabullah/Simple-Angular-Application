@@ -8,5 +8,8 @@ margin: 5em auto;
 .btn{
     margin-top: 2em;
     width: 100%;
-
+}
+.error_text{
+    font-size: 13px;
+    margin-left: 3px;
 }

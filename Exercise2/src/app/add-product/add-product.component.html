@@ -1,7 +1,11 @@
 
-<div class="container px-3 mt-4">
-    <h2 class="text-center"> Manage Products</h2>
-    <div class="col-md-12 d-flex shadow mt-5 ">
+<!-- Product Section  -->
+<div class="container px-3">
+    <h2 class="text-center page_title"> Manage Products</h2>
+    <div class="alert alert-success " role="alert" *ngIf="alertBoxSuccess">
+    Successfully Changed
+    </div>
+    <div class="col-md-12 d-flex shadow mt-2 ">
         <div class="col-md-4 p-3 ">
             <h3 class="py-3 ">Add Product Here</h3>
             <form action="" class="form-control ">
@@ -9,7 +13,7 @@
                 <input type="text" class="form-control mb-3" placeholder="Enter Product Name" #name>
                 <input type="text" class="form-control mb-3" placeholder="Enter Product Price" #price>
                 <div class="col-md-12 d-flex gap-2 ">
-                    <button type="button" class="btn btn-primary" (click)="addProduct(id,name,price)">Add Product</button>
+                    <button type="button" class="btn btn-primary" (click)="addProduct(id,name,price)">{{editMode? 'Update Product' : 'Add Product'}}</button>
                     <!-- <button type="button" class="btn btn-info" (click)="saveProduct()">Save Product</button> -->
                     <button type="button" class="btn btn-success" (click)="fetchProduct()">Fetch Product</button>
                 </div>
@@ -36,7 +40,7 @@
                         <th><strong>{{item.id}}</strong></th>
                         <td>{{item.name}}</td>
                         <td>Rs&nbsp;{{item.price}}</td>
-                        <td><button type="button" class="delIcon" ><fa-icon [icon]="editIcon" class="delIcon text-danger"></fa-icon></button></td>
+                        <td><button type="button" class="delIcon" (click)="onEditProduct(i)" ><fa-icon [icon]="editIcon" class="delIcon text-danger"></fa-icon></button></td>
                         <td><button type="button" class="delIcon" (click)="deleteProduct(i)"><fa-icon [icon]="delIcon" class="delIcon text-danger"></fa-icon></button></td>
                       </tr>
                     </tbody>
