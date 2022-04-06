@@ -1,6 +1,6 @@
-<div class="col-md-4 container m-auto mt-4" *ngIf="alertActive">
-  <div class="alert alert-danger text-center" role="alert">
-    <span> Wrong Password or Username!!</span>
+<div class="col-md-6 shadow m-auto">
+  <div class="alert alert-danger text-center" role="alert" *ngIf="alertActive">
+    <span> Wrong Password or Username !!!</span>
   </div>
 </div>
 <div class="container col-md-4 border shadow form-container">
@@ -12,14 +12,13 @@
         <div class="form-outline mb-4">
           <input
             type="email" id="text" class="form-control" placeholder="Email" #email formControlName="email" />
-            <span class="text-danger mt-1 error_text" *ngIf="f['email'].errors?.['email'] || f['email'].errors?.['pattern']">Please Enter Valid Email</span>
-
+            <span class="text-danger mt-1 error_text" *ngIf="submitted && signin.get('email')?.errors?.['required'] ">Enter Valid Email</span>
         </div>
         <!-- Password input -->
         <div class="form-outline mb-4">
           <input
             type="password" id="password" class="form-control" placeholder="Password" #password formControlName="password" />
-            <span class="text-danger error_text"  *ngIf="signin.get('password')?.touched && signin.get('password')?.invalid">Enter Password</span>
+            <span class="text-danger error_text"  *ngIf="submitted && signin.get('password')?.errors?.['required'] ">Enter Valid Password</span>
         </div>
         <div class="col">
           <!-- Simple link -->
@@ -27,8 +26,8 @@
         </div>
         <!-- Submit button -->
         <button
-          type="button"
-          class="btn btn-primary btn-block mb-4"(click)="signIn(email, password)" > Sign in
+          type="submit"
+          class="btn btn-primary btn-block mb-4" > Sign in
         </button>
       </form>
     </div>

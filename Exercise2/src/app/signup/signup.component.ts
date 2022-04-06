@@ -17,28 +17,22 @@ export class SignupComponent implements OnInit {
   faFacebook = faFacebook;
   faTwitter = faTwitter;
   faGithub = faGithub
-  // userData: any = []
   confirmpassword: boolean = false;
-  submitted: boolean = true
+  submitted: boolean = false
 
   constructor(private fb: FormBuilder,
     private router: Router,
-    // private http: HttpClient,
     private _userData: UserdataService,
-    // private _createUserDB: UserdataService
   ) {
 
   }
 
   ngOnInit(): void {
     this.createUser();
-    console.log(this._userData.userData)
-    // this.formValidCheck()
-    this.submitted = true
-    if (this.signup.errors) {
-      return
-    }
+
   }
+
+  // Form Group for Users Details 
   createUser() {
     this.signup = this.fb.group({
       'firstname': ['', Validators.required],
@@ -46,12 +40,17 @@ export class SignupComponent implements OnInit {
       'email': ['', [Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       'password': ['', [Validators.minLength(6), Validators.required]],
       'confirmpassword': ['', [Validators.minLength(6), Validators.required]],
-
     })
   }
+  // Submission of Form 
   onSubmit() {
+    // debugger
+    this.submitted = true
+    if (this.signup.errors) {
+      return
+    }
     if (this.signup.valid) {
-      // this.submitted = false/
+      this.confirmpassword = false;
       if (this.signup.value.password === this.signup.value.confirmpassword) {
         this._userData.saveUserData(this.signup.value)
         this.router.navigate(['login']);
@@ -63,18 +62,6 @@ export class SignupComponent implements OnInit {
       this.submitted = true
     }
   }
-  get f(): { [key: string]: AbstractControl } {
-    return this.signup.controls;
-  }
-  // formValidCheck() {
-  //   this.signup.get('email')?.errors
-  //   this.signup.get('firstname')?.errors
-  //   this.signup.get('lastname')?.errors
-  //   this.signup.get('password')?.errors
-  //   this.signup.get('confirmpassword')?.errors
-
-  //   return
-  // }
 
 
 

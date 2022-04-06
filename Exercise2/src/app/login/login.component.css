@@ -1,5 +1,5 @@
 .form-container{
-margin: 5em auto;
+margin: 4em auto;
 
 }
 .main-row{
@@ -12,4 +12,12 @@ margin: 5em auto;
 .error_text{
     font-size: 13px;
     margin-left: 3px;
+}
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+    box-shadow: 0 0 2px red;
+}
+.col-md-6{
+    width: 33.4%;
+   /* visibility: hidden; */
 }

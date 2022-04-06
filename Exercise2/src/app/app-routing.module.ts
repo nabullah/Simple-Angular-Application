@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'gallary', component: GallaryComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'login', canActivate: [AuthGuard], component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: 'signup', canActivate: [AuthGuard], component: SignupComponent },
   { path: 'product-info', component: ProductInfoComponent },
   { path: 'gallary-image/:id', component: GallaryImageComponent },
   { path: 'add-product', component: AddProductComponent },

@@ -14,13 +14,14 @@ import { HeaderServiceService } from './../services/header-service.service';
 })
 export class LoginComponent implements OnInit {
   userdata: any = []
+  email: any;
+  password: any;
   signin!: FormGroup;
   localItem: any;
   getLocalStorage: any;
-  pass: any
   alertActive: boolean = false
   username: any;
-
+  submitted: boolean = false;
 
   constructor(private _loginButton: HeaderServiceService,
     private _logoutButton: HeaderServiceService,
@@ -33,11 +34,11 @@ export class LoginComponent implements OnInit {
   // Constructor 
   {
     this.localItem = localStorage.getItem('user');
-    if (this.localItem === null) {
-      this.userdata = []
-    } else {
-      this.userdata = JSON.parse(this.localItem)
-    }
+    // if (this.localItem === null) {
+    //   this.userdata = []
+    // } else {
+    //   this.userdata = JSON.parse(this.localItem)
+    // }
     this._loginAlert.loginAlert.subscribe(res => {
       this.alertActive = res
     });
@@ -45,25 +46,35 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.receiveUser();
+    this.f;
+    // this.alertActive = true
   }
   onSubmit() {
-    this.signIn;
+    this.submitted = true
+    if (this.signin.errors) {
+      return
+    }
+
+    if (this.signin.valid) {
+      this.signIn();
+    } else {
+      this.submitted = true
+    }
   }
+
   receiveUser() {
     this.signin = this.fb.group({
-      'email': ['', [Validators.required, Validators.email]],
-      'password': ['', Validators.minLength(6)]
+      'email': ['', [Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      'password': ['', [Validators.minLength(6), Validators.required]]
     })
   }
-
-  signIn(email: any, pass: any) {
+  // SignIn function 
+  signIn() {
     this.getLocalStorage = JSON.parse(localStorage.getItem("user") || '{}')
-    // console.log(this.getLocalStorage)
     if (localStorage.getItem('user') !== null) {
-
-      for (var i = 0; i < this.getLocalStorage.length; i++) {
-        if (this.getLocalStorage[i].email === email.value && this.getLocalStorage[i].password === pass.value) {
-          this._username.username.next(this.getLocalStorage[i].firstname + " " + this.getLocalStorage[i].lastname)
+      for (var i = 0; i < this.getLocalStorage.length; i++) { //Iterating through user object in localstorage
+        if (this.getLocalStorage[i].email === this.signin.get('email')?.value && this.getLocalStorage[i].password === this.signin.get('password')?.value) {
+          this._username.username.next(this.getLocalStorage[i].firstname + " " + this.getLocalStorage[i].lastname) //Sending values of Firstname and lastname to userdata service to display in navbar
           this._logoutButton.logoutButton.next(true)
           this._loginButton.loginButton.next(false)
           this._authentication.isLoggedIn.next(true)
@@ -75,11 +86,11 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('username', this.getLocalStorage[i].firstname + " " + this.getLocalStorage[i].lastname)
       }
     } else {
-      this._loginAlert.loginAlert.next(true);
+      console.log('Signup First')
     }
   }
   get f() {
-    return this.signin.controls
+    return console.log(this.signin.controls)
   }
 }
 
